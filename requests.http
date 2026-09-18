@@ -1,0 +1,6 @@
+POST http://localhost:3000/tables/T19/status
+Content-Type: application/json
+
+{
+    "newStatus":"seated"
+}
