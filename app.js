@@ -1,6 +1,7 @@
 const express = require("express")
 const floorPlanData = require('./floorPlanData')
 const app = express()
+// const cors = require('cors')
 // const router = express.Router()
 
 function hello()
@@ -8,7 +9,14 @@ function hello()
     console.log("Server Running")
 }
 
+// app.use(cors())
 app.use(express.json())
+app.use((req,res, next) => {
+    res.setHeader("Access-Control-Allow-Origin","*");
+    res.setHeader("Access-Control-Allow-Methods","GET,POST, PUT,PATCH, DELETE")
+    res.setHeader("Access-Control-Allow-Headers","Content-Type, Authorization")
+    next()
+})
 app.get("/tables",(req,res,next) =>{
     res.json(floorPlanData)
 })
