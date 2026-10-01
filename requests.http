@@ -1,6 +1,9 @@
-POST http://localhost:3000/tables/T19/status
+GET http://localhost:3000/tables
+###
+
+POST http://localhost:3000/tables/T5/status
 Content-Type: application/json
 
 {
-    "newStatus":"served"
+    "newStatus":"seated"
 }
