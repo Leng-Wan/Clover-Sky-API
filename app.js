@@ -34,6 +34,6 @@ app.post("/tables/:id/status",(req,res,next)=>{
     pool.query("UPDATE clover_sky_restaurant_tables SET status = $1 WHERE id = $2 RETURNING *",[nextStatus,requested_id]).then(result => res.json(result.rows[0])).catch(err => {console.log(err),res.status(500).json({message:"Database Error"})})
 })
 // app.listen(3000,hello)
-app.listen(3000,()=>{
+app.listen(process.env.PORT? process.env.PORT : 3000,()=>{
     console.log("server Running")
 })
